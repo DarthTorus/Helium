@@ -35,7 +35,7 @@ bot.on("message", function(user, userID, channelID, message, rawEvent) {
     
 	message.split(" "); //Split the message on spaces. You'll see why.
 	var msg = message; //Assign message array to a new variable because we'll be changing the message variable
-	message = message[0]; //Assign message as just the command
+	message = message[0].toLowerCase(); //Assign message as just the command
 	console.log("[DEBUG] message[0]" + message); //Check if this gives only the command then remove it once it works.
 	msg.shift(); //Pops the command out of the message array for ease of access (you'll see why).
         
