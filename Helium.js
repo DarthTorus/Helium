@@ -8,20 +8,20 @@ var bot = new Discordbot({
 bot.startDate = Date.now();
 
 bot.on("ready", function(rawEvent) {
-    
-    setTimeout(function(){ console.log(" ") }, 1000);
-    setTimeout(function(){ console.log(" Helium.") }, 1100);
-    setTimeout(function(){ console.log("By Zacimac") }, 1200);
-    setTimeout(function(){ console.log(" ") }, 1300);
-    setTimeout(function(){ console.log("------------------"); }, 1400);
-    setTimeout(function(){ console.log(" ") }, 1500);
-    setTimeout(function(){ console.log("[INFO] " + bot.username + " is now running") }, 1600);
-    setTimeout(function(){ console.log(" ") }, 1700);
-    setTimeout(function(){ console.log("[INFO] " + bot.username + "'s ID = " + bot.id) }, 1800);
-    setTimeout(function(){ console.log(" ") }, 1900);
-    setTimeout(function(){ console.log("[INFO] Running version of " + bot.username + " 1.2") }, 2000);
-    setTimeout(function(){ console.log(" ") }, 2100);
-    setTimeout(function(){ console.log("------------------"); }, 2200);
+    //You don't need to setTimeout() for console logging. It logs in the order given.
+    console.log(" ");
+    console.log(" Helium.");
+    console.log("By Zacimac");
+    console.log(" ");
+    console.log("------------------"); ;
+    console.log(" ");
+    console.log("[INFO] " + bot.username + " is now running");
+    console.log(" ");
+    console.log("[INFO] " + bot.username + "'s ID = " + bot.id);
+    console.log(" ")
+    console.log("[INFO] Running version of " + bot.username + " 1.4");
+    console.log(" ");
+    console.log("------------------");
     bot.setPresence({game: "Hi! I'm Helium!"});
     
 });
@@ -34,9 +34,11 @@ bot.on("message", function(user, userID, channelID, message, rawEvent) {
 	
     
 	message.split(" "); //Split the message on spaces. You'll see why.
+	console.log("[DEBUG] message after split: " + message); //Log message variable after splitting
 	var msg = message; //Assign message array to a new variable because we'll be changing the message variable
+	console.log("[DEBUG] msg: " + msg); //Log msg variable
 	message = message[0].toLowerCase(); //Assign message as just the command
-	console.log("[DEBUG] message[0]" + message); //Check if this gives only the command then remove it once it works.
+	console.log("[DEBUG] message[0]: " + message); //Check if this gives only the command then remove it once it works.
 	msg.shift(); //Pops the command out of the message array for ease of access (you'll see why).
         
 //////////////////////
@@ -101,7 +103,7 @@ bot.on("message", function(user, userID, channelID, message, rawEvent) {
 // repeat
     if (message === "!repeat") {
     	var string = msg.join(" "); //Join the msg variable we initialized in the beginning of the checks (line 37);
-        sendMessages(channelID, [msg]); //CHECK THIS
+        sendMessages(channelID, ["\u200B\u180E" + msg]); //CHECK THIS
     }
 
 // website
